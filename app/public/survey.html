@@ -236,7 +236,7 @@
                     var currentURL = window.location.origin;
 
                     // AJAX post the data to the friends API //
-                    $.post(currentURL + "/api/friends", friends,
+                    $.post(currentURL + "/api/friends.js", friends,
                         function (data) {
                             // Results from the AJAX post to yield the best match //
                             $("#matchName").text(data.name);
