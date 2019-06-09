@@ -69,5 +69,44 @@ function currentUserScore(surveyResults, compScore) {
 };
 
 
+var comparisonDifference = 0;
+
+		// Total difference between current user and another user //
+function currentUserScore(surveyResults, compScore) {
+
+		// Reset the score for the best matched friend //
+    comparisonDifference = 0;
+
+    for (var i = 0; i < surveyResults.length; i++) {
+
+        comparisonDifference += Math.abs(surveyResults[i] - compScore[i]);
+    }
+
+    return comparisonDifference;
+};
+
+
+
+var comparisonDifference = 0;
+
+		// Total difference between current user and another user //
+function currentUserScore(surveyResults, compScore) {
+
+		// Reset the score for the best matched friend //
+    comparisonDifference = 0;
+
+    for (var i = 0; i < surveyResults.length; i++) {
+
+        comparisonDifference += Math.abs(surveyResults[i] - compScore[i]);
+    }
+
+    return comparisonDifference;
+};
+
+
+
+
+
+
 
 

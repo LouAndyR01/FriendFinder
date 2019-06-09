@@ -180,7 +180,7 @@
     <div id="resultsModal" class="modal fade" role="dialog" tabindex="-1">
         <div class="modal-dialog">
 
-                <!-- Modal content -->
+            <!---------------------------------------------- modal begins here ----------------------------------------------------->
 
             <div class="modal-content">
                 <div class="modal-header">
@@ -214,8 +214,10 @@
             for (var selector in config) {
                 $(selector).chosen(config[selector]);
             }
-            // Form inputs 
+
+                // Form inputs 
             $("#submit").on("click", function () {
+                
                 // Form validation
                 function validateForm() {
                     var isValid = true;
@@ -231,7 +233,7 @@
                 }
                 if (validateForm() == true) {
 
-                    // Create an object for user's data
+                    // Create an object for user's data //
                     var friends = {
                         name: $("#name").val(),
                         photo: $("#photo").val(),
@@ -239,13 +241,13 @@
                         $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
                     }
 
-                    // URL of the website
+                    // URL of the website //
                     var currentURL = window.location.origin;
 
-                    // AJAX post the data to the friends API
+                    // AJAX post the data to the friends API //
                     $.post(currentURL + "/api/friends", friends,
                         function (data) {
-                            // Results from the AJAX post to yield the best match
+                            // Results from the AJAX post to yield the best match //
                             $("#matchName").text(data.name);
                             $('#matchImg').attr("src", data.photo);
                             $("#resultsModal").modal('toggle');
