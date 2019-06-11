@@ -1,39 +1,42 @@
-var path = require('path');
-var friends = require('../data/friends');
+var friends = require("../data/friends.js");
 
 module.exports = function (app) {
-	
+
     app.get("/api/friends", function (req, res) {
-        return res.json(friends);
+        res.json(friends);
     });
 
-		// calculating for the best friend match //
     app.post("/api/friends", function (req, res) {
-        var userData = req.body;
-        var userDataScore = req.body.scores;
-        var difference;
-        var totalDifference = 1000;
-        var match = {
-            name: null,
-            photo: null
-        };
+		var userInput = req.body;
+		var userResponses = userInput.scores;
 
-		 // checking friends for best match, checking difference in scores //
-        for (var i = 0; i < friends.length; i++) {
-            if (userData.name !== friends[i].name) {
-                difference = 0;
-                for (var j = 0; j < friends[i].scores.length; j++) {
-                    difference += Math.abs(
-                        parseInt(userDataScore[j]) - parseInt(friends[i].scores[j])
-                    );
-                }
-                if (difference < totalDifference) {
-                    match.name = friends[i].name;
-                    match.photo = friends[i].photo;
-                    totalDifference = difference;
-                }
-            }
-        }
-        return res.json(match);
-    });
-}
+		var matchName = '';
+		var matchPhoto = '';
+		var totalDifference = 1000;
+
+		for (var i = 0; i < friends.length; i++) {
+
+			var diff = 0;
+			for (var j = 0; j < userResponses.length; j++) {
+				diff += Math.abs(friends[i].scores[j] - userResponses[j]);
+			}
+			console.log('diff = ' + diff);
+
+			if (diff < totalDifference) {
+				console.log('Closest match found = ' + diff);
+				console.log('Friend name = ' + friends[i].name);
+				console.log('Friend image = ' + friends[i].photo);
+
+				totalDifference = diff;
+				matchName = friends[i].name;
+				matchPhoto = friends[i].photo;
+			}
+		}
+
+		friends.push(userInput);
+
+		res.json({status: 'OK', matchName: matchName, matchPhoto: matchPhoto});
+	});
+
+};
+
