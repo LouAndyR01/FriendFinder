@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+       
     <title>Survey Page</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"crossorigin="anonymous"/>
 
 </head>
 
@@ -27,7 +31,7 @@
         <h3><strong>Let's see what you're all about!</strong></h3>
         <br>
 
-        <h4>Name (Required)</h4>
+        <h4>Your Name (Required)</h4>
         <input type="text" name="" id="name" class="form-control" required>
         <br>
 
@@ -35,7 +39,7 @@
         <input type="text" name="" id="photo" class="form-control" required>
         <br>    
 
-        <h3>Question 1.</h3> <h4>I enjoy outdoor activities.</h4>
+        <h3>1. I enjoy outdoor activities.</h3>
         <select data-placeholder="" class="chosen-select" id="q1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -47,7 +51,7 @@
         <br>
         <br>
         
-        <h3>Question 2.</h3><h4>I enjoy a glass of wine with dinner.</h4>
+        <h3>2. I enjoy a glass of wine with dinner.</h3>
         <select data-placeholder="" class="chosen-select" id="q2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -59,7 +63,7 @@
         <br>
         <br>
        
-        <h3>Question 3.</h3><h4>I like to listen to music and going to concerts.</h4>
+        <h3>3. I like to listen to music and going to concerts.</h3>
         <select data-placeholder="" class="chosen-select" id="q3">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -71,7 +75,7 @@
         <br>
         <br>
 
-        <h3>Question 4.</h3><h4>I like to travel and learn about other cultures.</h4>
+        <h3>4. I like to travel and learn about other cultures.</h3>
         <select data-placeholder="" class="chosen-select" id="q4">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -83,7 +87,7 @@
         <br>
         <br>
 
-        <h3>Question 5.</h3><h4>I have a good relationship with my family.</h4>
+        <h3>5. I have a good relationship with my family.</h3>
         <select data-placeholder="" class="chosen-select" id="q5">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -95,7 +99,7 @@
         <br>
         <br>
        
-        <h3>Question 6.</h3><h4>I enjoy watching sports.</h4>
+        <h3>6. I enjoy watching sports.</h3>
         <select data-placeholder="" class="chosen-select" id="q6">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -107,7 +111,7 @@
         <br>
         <br>
       
-        <h3>Question 7.</h3><h4>I like to watch movies.</h4>
+        <h3>7. I like to watch movies.</h3>
         <select data-placeholder="" class="chosen-select" id="q7">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -119,7 +123,7 @@
         <br>
         <br>
 
-        <h3>Question 8.</h3><h4>I enjoy going to church.</h4>
+        <h3>8. I enjoy going to church.</h3>
         <select data-placeholder="" class="chosen-select" id="q8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -131,7 +135,7 @@
         <br>
         <br>
                 
-        <h3>Question 9.</h3><h4>I enjoy trying different foods.</h4>
+        <h3>9. I enjoy trying different foods.</h3>
         <select data-placeholder="" class="chosen-select" id="q9">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -143,7 +147,7 @@
         <br>
         <br>
        
-        <h3>Question 10.</h3><h4>I enjoy time spent alone.</h4>
+        <h3>10. I enjoy time spent alone.</h3>
         <select data-placeholder="" class="chosen-select" id="q10">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
@@ -152,121 +156,107 @@
             <option value="4">4</option>
             <option value="5">5 (Strongly Agree)</option>
         </select>
+        
         <br>
         <br>
+        <button type="button" class="btn btn-success btn-lg" id="submit"><i class="fa fa-thumbs-up" aria-hidden="true">&nbsp&nbsp</i>Submit</button>
 
-        <button type="submit" class="btn btn-success btn-lg" id="submit" data-toggle="modal" data-target="#resultsModal"><i class="fa fa-thumbs-up"
-                aria-hidden="true"></i> Submit</button>
         <hr>
 
         <footer class="footer">
             <div class="container">
-                <p><a style="color:black" href="/api/friends" target="_blank">API Friends List</a> |
-                    <a style="color:black" href="https://github.com/LouAndyR01/FriendFinder" target="_blank">GitHub
-                        Repo</a></p>
+                
+                    <a href="/api/friends">API Friends List</a> |
+                    <a href="https://github.com/LouAndyR01/FriendFinder"target="_blank">GitHub Repo</a>
+                
             </div>
         </footer>
     </div>
 
-    <div id="resultsModal" class="modal fade" role="dialog" tabindex="-1">
+      <!-- MODAL -->
+    <div id="results-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-
-            <!---------------------------------------------- modal begins here ----------------------------------------------------->
-
-            <div class="modal-content">
-                <div class="modal-header">
-                        <h2 class="modal-title"><strong>Your Match</strong></h2>
-                    <button type="button" class="close" data-dismiss="modal">
-                        <span aria-hidden="true">&times;</span> 
-                    </button> 
-                </div>
-                <div class="modal-body">
-                    <h2 id="matchName"></h2>
-                    <img id="matchImg"
-                        src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" class="img-responsive" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">×</button>
+              <h2 class="modal-title"><strong>Best Match!</strong></h2>
             </div>
-
+            <div class="modal-body">
+              <h2 id="user-match"></h2>
+              <img id="image-match" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default-small" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+    
         </div>
     </div>
     
-        <script type="text/javascript">
+      <script type="text/javascript">
 
-            var config = {
-                '.chosen-select': {},
-                '.chosen-select-deselect': { allow_single_deselect: true },
-                '.chosen-select-no-single': { disable_search_threshold: 10 },
-                '.chosen-select-no-results': { no_results_text: 'No results!' },
-                '.chosen-select-width': { width: "95%" }
-            }
-            for (var selector in config) {
-                $(selector).chosen(config[selector]);
-            }
-
-                // Form inputs 
-            $("#submit").on("click", function () {
-
-                // Form validation
-                function validateForm() {
-                    var isValid = true;
-                    $('.form-control').each(function () {
-                        if ($(this).val() === '')
-                            isValid = false;
-                    });
-                    $('.chosen-select').each(function () {
-                        if ($(this).val() === "")
-                            isValid = false
-                    })
-                    return isValid;
-                }
-                if (validateForm() == true) {
-
-                    // Create an object for user's data //
-                    var friends = {
-                        name: $("#name").val(),
-                        photo: $("#photo").val(),
-                        scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), 
-                        $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val(),]
-                    }
-
-                    // URL of the website //
-                    var currentURL = window.location.origin;
-
-                    // AJAX post the data to the friends API //
-                    $.post(currentURL + "/api/friends.js", friends,
-                        function (data) {
-                            // Results from the AJAX post to yield the best match //
-                            $("#matchName").text(data.name);
-                            $('#matchImg').attr("src", data.photo);
-                            $("#resultsModal").modal('toggle');
-
-                            // Clears the form upon submitting
-                            $("#name").val("");
-                            $("#photo").val("");
-                            $("#q1").val("").trigger("chosen:updated");
-                            $("#q2").val("").trigger("chosen:updated");
-                            $("#q3").val("").trigger("chosen:updated");
-                            $("#q4").val("").trigger("chosen:updated");
-                            $("#q5").val("").trigger("chosen:updated");
-                            $("#q6").val("").trigger("chosen:updated");
-                            $("#q7").val("").trigger("chosen:updated");
-                            $("#q8").val("").trigger("chosen:updated");
-                            $("#q9").val("").trigger("chosen:updated");
-                            $("#q10").val("").trigger("chosen:updated");
-                        });
-                }
-                else {
-                    alert("Fill out all of the fields to submit.");
-                }
-                return false;
-            });
-
+      $("#submit").on("click", function(event) {
+    event.preventDefault();
+  
+            // Form validation //
+    function validateForm() {
+      var isValid = true;
+  
+      //Run though each question to check the answer was selected.
+      $(".form-control").each(function() {
+        if ($(this).val() === "Select an option") {
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
+  
+    //IF all the validation is positive then create the POST.
+    if (validateForm()) {
+  
+      //Creates object with all the answers from the user.
+      var userData = {
+        name: $("#survey_name").val(),
+        photo: $("#survey_link").val(),
+        scores: [
+          $("#survey_q1").val(),
+          $("#survey_q2").val(),
+          $("#survey_q3").val(),
+          $("#survey_q4").val(),
+          $("#survey_q5").val(),
+          $("#survey_q6").val(),
+          $("#survey_q7").val(),
+          $("#survey_q8").val(),
+          $("#survey_q9").val(),
+          $("#survey_q10").val()
+        ]
+      };
+  
+      //Call the POST and sends object.
+      $.post('/api/friends', userData)
+        //Receives confirmation of POST + best match user and image.
+        .done(function(data) {
+  
+  
+          $('#user-match').html(data.match.name);
+          $("#image-match").attr("src", data.match.photo);
+          // Pop open the modal dialog
+          $('#results-modal').modal('toggle');
+        });
+    }
+    //IF validation wasn't succesful display alert.
+    else {
+      alert("Please fill out all fields before submitting.")
+    }
+  })
+      
+      
         </script>
 
-    </body>
+    </body> 
 
-</html>
+</html> 
+            
        
