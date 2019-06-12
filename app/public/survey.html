@@ -40,7 +40,7 @@
         <br>    
 
         <h3>1. I enjoy outdoor activities.</h3>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select class="chosen-select" id="quest1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -52,7 +52,7 @@
         <br>
         
         <h3>2. I enjoy a glass of wine with dinner.</h3>
-        <select data-placeholder="" class="chosen-select" id="q2">
+        <select class="chosen-select" id="quest2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -64,7 +64,7 @@
         <br>
        
         <h3>3. I like to listen to music and going to concerts.</h3>
-        <select data-placeholder="" class="chosen-select" id="q3">
+        <select class="chosen-select" id="quest3">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -76,7 +76,7 @@
         <br>
 
         <h3>4. I like to travel and learn about other cultures.</h3>
-        <select data-placeholder="" class="chosen-select" id="q4">
+        <select class="chosen-select" id="quest4">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -88,7 +88,7 @@
         <br>
 
         <h3>5. I have a good relationship with my family.</h3>
-        <select data-placeholder="" class="chosen-select" id="q5">
+        <select class="chosen-select" id="quest5">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -100,7 +100,7 @@
         <br>
        
         <h3>6. I enjoy watching sports.</h3>
-        <select data-placeholder="" class="chosen-select" id="q6">
+        <select class="chosen-select" id="quest6">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -112,7 +112,7 @@
         <br>
       
         <h3>7. I like to watch movies.</h3>
-        <select data-placeholder="" class="chosen-select" id="q7">
+        <select class="chosen-select" id="quest7">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -124,7 +124,7 @@
         <br>
 
         <h3>8. I enjoy going to church.</h3>
-        <select data-placeholder="" class="chosen-select" id="q8">
+        <select class="chosen-select" id="quest8">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -136,7 +136,7 @@
         <br>
                 
         <h3>9. I enjoy trying different foods.</h3>
-        <select data-placeholder="" class="chosen-select" id="q9">
+        <select class="chosen-select" id="quest9">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -148,7 +148,7 @@
         <br>
        
         <h3>10. I enjoy time spent alone.</h3>
-        <select data-placeholder="" class="chosen-select" id="q10">
+        <select class="chosen-select" id="quest10">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -158,11 +158,11 @@
         </select>
         
         <br>
-        <br>
-        <button type="button" class="btn btn-success btn-lg" id="submit"><i class="fa fa-thumbs-up" aria-hidden="true">&nbsp&nbsp</i>Submit</button>
+        <br><button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn" data-toggle="modal" data-target="#results-modal"><i class="fa fa-check-circle"
+            aria-hidden="true"></i>Submit</button>
 
-        <hr>
-
+            <br>
+        
         <footer class="footer">
             <div class="container">
                 
@@ -172,86 +172,58 @@
             </div>
         </footer>
     </div>
-
-      <!-- MODAL -->
+    
     <div id="results-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-    
-          <!-- Modal content-->
+
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">×</button>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h2 class="modal-title"><strong>Best Match!</strong></h2>
             </div>
             <div class="modal-body">
-              <h2 id="user-match"></h2>
-              <img id="image-match" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+              <h2 id="match-name"></h2>
+              <img id="match-photo" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="Your Match">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default-small" data-dismiss="modal">Close</button>
             </div>
           </div>
-    
         </div>
     </div>
     
+    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
       <script type="text/javascript">
 
-      $("#submit").on("click", function(event) {
-    event.preventDefault();
-  
-            // Form validation //
-    function validateForm() {
-      var isValid = true;
-  
-      //Run though each question to check the answer was selected.
-      $(".form-control").each(function() {
-        if ($(this).val() === "Select an option") {
-          isValid = false;
-        }
-      });
-      return isValid;
-    }
-  
-    //IF all the validation is positive then create the POST.
-    if (validateForm()) {
-  
-      //Creates object with all the answers from the user.
-      var userData = {
-        name: $("#survey_name").val(),
-        photo: $("#survey_link").val(),
+      $("#submit-btn").on("click", function(event) {
+         event.preventDefault();
+        
+      var newFriend = {
+
+        name: $("#userName").val(),
+        photo: $("#userPhoto").val(),
         scores: [
-          $("#survey_q1").val(),
-          $("#survey_q2").val(),
-          $("#survey_q3").val(),
-          $("#survey_q4").val(),
-          $("#survey_q5").val(),
-          $("#survey_q6").val(),
-          $("#survey_q7").val(),
-          $("#survey_q8").val(),
-          $("#survey_q9").val(),
-          $("#survey_q10").val()
+          $("#quest1").val(),
+          $("#quest2").val(),
+          $("#quest3").val(),
+          $("#quest4").val(),
+          $("#quest5").val(),
+          $("#quest6").val(),
+          $("#quest7").val(),
+          $("#quest8").val(),
+          $("#quest9").val(),
+          $("#quest10").val()
         ]
       };
   
-      //Call the POST and sends object.
-      $.post('/api/friends', userData)
-        //Receives confirmation of POST + best match user and image.
-        .done(function(data) {
-  
-  
-          $('#user-match').html(data.match.name);
-          $("#image-match").attr("src", data.match.photo);
-          // Pop open the modal dialog
-          $('#results-modal').modal('toggle');
-        });
-    }
-    //IF validation wasn't succesful display alert.
-    else {
-      alert("Please fill out all fields before submitting.")
-    }
-  })
       
+    $.post("/api/friends", newFriend, function(data) {
+     
+    $("#matchName").html(data.match.name);
+    $("#matchPhoto").attr("src", data.photo);
+
+        });
+    });      
       
         </script>
 
