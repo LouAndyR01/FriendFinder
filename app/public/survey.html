@@ -1,43 +1,42 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
-       
-    <title>Survey Page</title>
+  <meta charset="UTF-8">
+  <title>FriendFinder</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"crossorigin="anonymous"/>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
 
 </head>
 
 <body>
 
-    <div class="container">
+  <div class="container">
 
         <h1 class="text-center">Friend Finder Survey</h1>
       
         <div class="container"
         style="margin-top: 20px; margin-bottom: 20px; border: 2px solid; border-radius: 20px;">
 
-        <h2>Survey Questions</h2>
-        <hr>
+    <h2>Survey Questions</h2>
+    <hr>
 
-        <h3><strong>Let's see what you're all about!</strong></h3>
-        <br>
+    <h3><strong>Lets see what you're all about!</strong></h3>
+    <h4>Your Name (Required)</h4>
+    <input type="text" id="name" class="form-control" required>
 
-        <h4>Your Name (Required)</h4>
-        <input type="text" name="" id="name" class="form-control" required>
-        <br>
+    <h4>Link to your photo image (Required)</h4>
+    <input type="text" id="photo" class="form-control" required>
 
-        <h4>Link to your photo image (Required)</h4>
-        <input type="text" name="" id="photo" class="form-control" required>
-        <br>    
 
         <h3>1. I enjoy outdoor activities.</h3>
         <select class="chosen-select" id="quest1">
@@ -158,77 +157,95 @@
         </select>
         
         <br>
-        <br><button type="submit" class="btn btn-primary btn-lg btn-block" id="submit-btn" data-toggle="modal" data-target="#results-modal"><i class="fa fa-check-circle"
-            aria-hidden="true"></i>Submit</button>
+        <br>
 
-            <br>
-        
-        <footer class="footer">
-            <div class="container">
-                
-                    <a href="/api/friends">API Friends List</a> |
-                    <a href="https://github.com/LouAndyR01/FriendFinder"target="_blank">GitHub Repo</a>
-                
-            </div>
-        </footer>
-    </div>
-    
-    <div id="results-modal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h2 class="modal-title"><strong>Best Match!</strong></h2>
-            </div>
-            <div class="modal-body">
-              <h2 id="match-name"></h2>
-              <img id="match-photo" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="Your Match">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default-small" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-    </div>
-    
-    <!-- <script src="https://code.jquery.com/jquery.js"></script> -->
-      <script type="text/javascript">
-
-      $("#submit-btn").on("click", function(event) {
-         event.preventDefault();
-        
-      var newFriend = {
-
-        name: $("#userName").val(),
-        photo: $("#userPhoto").val(),
-        scores: [
-          $("#quest1").val(),
-          $("#quest2").val(),
-          $("#quest3").val(),
-          $("#quest4").val(),
-          $("#quest5").val(),
-          $("#quest6").val(),
-          $("#quest7").val(),
-          $("#quest8").val(),
-          $("#quest9").val(),
-          $("#quest10").val()
-        ]
-      };
-  
-      
-    $.post("/api/friends", newFriend, function(data) {
-     
-    $("#matchName").html(data.match.name);
-    $("#matchPhoto").attr("src", data.photo);
-
-        });
-    });      
-      
-        </script>
-
-    </body> 
-
-</html> 
-            
+         <!-- Submit Button -->
+    <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>
+        Submit</button>
+   
+       <hr>
+       <footer class="footer">
+         <div class="container">
+                <a href="/api/friends">API Friends List</a> |
+                <a href="https://github.com/LouAndyR01/FriendFinder"target="_blank">GitHub Repo</a>
+         </div>
+       </footer>
+   
+     </div>
+   
+     <!-- Modal -->
+     <div id="results-modal" class="modal fade" role="dialog">
+       <div class="modal-dialog">
+   
+         <!-- Modal content-->
+         <div class="modal-content">
+           <div class="modal-header">
+             <button class="close" data-dismiss="modal">&times;</button>
+             <h2 class="modal-title"><strong>Best Match</strong></h2>
+           </div>
+           <div class="modal-body">
+             <h2 id="match-name"></h2>
+             <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt="">
+           </div>
+           <div class="modal-footer">
+             <button class="btn btn-default" data-dismiss="modal">Close</button>
+           </div>
+         </div>
+   
+       </div>
+     </div>
+   
+       <script type="text/javascript">
+       $("#submit").on("click", function() {
+         
+         function validation() {
+           var isValid = true;
+           $(".form-control").each(function() {
+             if ($(this).val() === "") {
+               isValid = false;
+               console.log("Name or Link field not filled out");
+             }
+           })
+           $(".chosen-select").each(function() {
+             if ($(this).val() === "") {
+               isValid = false;
+               console.log("Questions not answered");
+             }
+           });
+           return isValid;
+         }
+         if(validation()) {
+           var userInput = {
+             name: $("#name").val().trim(),
+             photo: $("#photo").val().trim(),
+             scores: [
+               $("#quest1").val(),
+               $("#quest2").val(),
+               $("#quest3").val(),
+               $("#quest4").val(),
+               $("#quest5").val(),
+               $("#uest6").val(),
+               $("#quest7").val(),
+               $("#quest8").val(),
+               $("#quest9").val(),
+               $("#quest10").val(),
+             ]
+           };
+           var currentInput = window.location.origin;
+          
+           $.post("/api/friends", userInput, function(data){
+             $("#match-name").text(data.name);
+             
+             $("#match-img").attr("src", data.photo).css("width", "100%").css("height", "auto");
+             $("#results-modal").modal("toggle");
+           })
+         }
+       })
        
+       </script>
+   
+   
+   </body>
+   
+   </html>
+     
